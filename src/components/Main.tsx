@@ -7,7 +7,7 @@ import useInfiniteScroller from '../hooks/useInfiniteScroller'
 const Main = () => {
     const [characters, setCharacters] = useState<Character[]>([])
     const observerTarget = useRef(null);
-    const {page, isLoading, setIsLoading} = useInfiniteScroller(fetchCharacters, observerTarget)
+    const {page, isLoading, setIsLoading} = useInfiniteScroller(observerTarget)
 
 
     async function fetchCharacters() {
@@ -31,8 +31,9 @@ const Main = () => {
     }
 
     useEffect(() => {
-        fetchCharacters()
-    }, [])
+        setIsLoading(true)
+        window.setTimeout(fetchCharacters, 500);  
+    }, [page])
 
     return (
         <div className="main__hero text-center">

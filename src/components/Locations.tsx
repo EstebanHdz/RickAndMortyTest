@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Location } from '../types'
 import { Globals } from '../helpers/Globals'
 import useInfiniteScroller from '../hooks/useInfiniteScroller'
@@ -10,7 +10,7 @@ const Locations = () => {
 
     const observerTarget = useRef(null);
 
-    const {page, isLoading, setIsLoading} = useInfiniteScroller(fetchLocations, observerTarget)
+    const {page, isLoading, setIsLoading} = useInfiniteScroller(observerTarget)
 
     async function fetchLocations() {
         const petition = await fetch(Globals.apiURL + "/location?page=" + page )
@@ -30,6 +30,11 @@ const Locations = () => {
 
         setIsLoading(false)
     }
+
+    useEffect(() => {
+        setIsLoading(true)
+        window.setTimeout(fetchLocations, 500);  
+    }, [page])
 
     return (
         <div className="main__hero text-center">

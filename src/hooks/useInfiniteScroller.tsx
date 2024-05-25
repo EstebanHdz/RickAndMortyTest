@@ -1,7 +1,7 @@
 import { MutableRefObject, useEffect, useState } from 'react'
 
 
-const useInfiniteScroller = (callback: () => Promise<unknown>, observerTarget:MutableRefObject<null>) => {
+const useInfiniteScroller = (observerTarget:MutableRefObject<null>) => {
     const [page, setPage] = useState(1)
     const [isLoading, setIsLoading] = useState(true)
 
@@ -10,6 +10,7 @@ const useInfiniteScroller = (callback: () => Promise<unknown>, observerTarget:Mu
           entries => {
             if (entries[0].isIntersecting) {
                 setPage(p => p + 1)
+                
             }
           },
           { rootMargin: "30px", threshold: 1 }
@@ -25,14 +26,6 @@ const useInfiniteScroller = (callback: () => Promise<unknown>, observerTarget:Mu
           }
         };
     }, [observerTarget]);
-
-
-
-    useEffect(() => {
-        
-        setIsLoading(true)
-        window.setTimeout(callback, 500);       
-    }, [page])
 
 
     return {
