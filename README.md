@@ -7,4 +7,4 @@ Simple project built using React + Vite + TypeScript and using the [The Rick and
 - Login and signup (Locally)
 - add/remove characters and locations to a "Favourites" list
 
-Final project hosted on Netlify: 
+Final project hosted on Netlify: [Live App](https://rickandmorty-test-app.netlify.app/)
