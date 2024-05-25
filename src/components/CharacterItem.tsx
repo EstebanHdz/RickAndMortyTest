@@ -9,7 +9,7 @@ type CharacterListItemProps = {
 const CharacterItem = ({character}:CharacterListItemProps) => {
 
     const {favourites} = useFavourites() 
-        
+
     return (
         <div className="card">
             <img src={character.image} className="card-img-top" alt="..."/>
@@ -22,7 +22,6 @@ const CharacterItem = ({character}:CharacterListItemProps) => {
                         <div className="col">
                             <p><b>Status: </b> {character.status}</p>
                             <p><b>Type: </b> {character.type == "" ? "N/A" :  character.type }</p>
-                            <p><b>Gender: </b> {character.gender}</p>
                             <p><b>Gender: </b> {character.gender}</p>
                             <p><b>Origin: </b> {character.origin.name}</p>
                             <p><b>Last Location: </b> {character.location.name}</p>
