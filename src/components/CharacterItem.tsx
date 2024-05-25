@@ -8,11 +8,8 @@ type CharacterListItemProps = {
 
 const CharacterItem = ({character}:CharacterListItemProps) => {
 
-    const {favourites} = useFavourites()    
-
-    if(!character)
-        return <></>
-    
+    const {favourites} = useFavourites() 
+        
     return (
         <div className="card">
             <img src={character.image} className="card-img-top" alt="..."/>

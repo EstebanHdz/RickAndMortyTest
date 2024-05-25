@@ -10,8 +10,6 @@ const LocationItem = ({location}:LocationListItemProps) => {
 
     const {favourites} = useFavourites()   
 
-    if(!location)
-        return <></>
     return (
         <div className="card">
             <div className="card-body">

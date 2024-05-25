@@ -1,24 +1,8 @@
-import { useEffect } from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
+import { NavLink} from 'react-router-dom'
 import { useAuth } from '../providers/AuthProvider'
 
 const Header = () => {
-
-    const location = useLocation()
-
     const {isLoggedIn, userName} = useAuth()
-
-    useEffect(() => {
-        /*
-        const queryParameters = new URLSearchParams(window.location.search)
-        if(queryParameters.get("query") != null){
-
-            setQueryValue(queryParameters.get("query"))
-        }else{
-            setQueryValue("")
-        }
-        */
-    }, [location])
     
     return (
         <>
